@@ -1,0 +1,51 @@
+label {
+    width:80px;
+    font-size:12px;
+    line-height:24px;
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+}
+
+body {
+    text-align: center;
+    font-family: Roboto, sans-serif;
+}
+
+.acmeTitle {
+    font-family: Google Sans, sans-serif;
+}
+
+
+table, th, td {
+    margin-left: 40.6%;
+    border: none;
+}
+
+a {
+    text-decoration-line: none;
+}
+
+input, textarea {
+    width:200px;
+    margin-bottom:5px;
+    line-height:18px;
+    padding:2px 5px;				
+    border-radius: 5px;
+    border:1px solid #CCC;
+    font-family: Roboto, sans-serif;
+}
+
+input[type=submit],
+input[type=reset] {
+    width:100px;
+    margin-left:25px;
+    margin-bottom:5px;
+    margin-top:20px;
+    line-height:18px;
+    padding:2px 5px;
+    border-radius: 5px;
+    border:1px solid #CCC;
+    color:#fff;
+    background-color:#09F;
+    font-family: Roboto, sans-serif;
+}
