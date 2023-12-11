@@ -105,7 +105,7 @@
 				
 				if ($invalidData == false) {
 					session_start();
-					include('./includes/php/addproducttodb.php');
+					include('./includes/php/addentrytodb.php');
 					header('Location: ./confirm.php');
 					exit();
 				}
@@ -124,16 +124,38 @@
 		<h3>* - required field</h3>
         <form id="form1" name="form1" method="post" enctype='multipart/form-data' action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>>
 			<input type='hidden' name='MAX_FILE_SIZE' value='41943040'>
-			<label for="prodName">Product name: </label><input name="prodName" id="prodName" type="text" aria-label="Product name" value="<?php echo $prodName;?>"/>* <span class="error"><?php echo $nameErr;?></span><br /><br />
-			<label for="prodUsage">Product description:</label> <input name="prodUsage" id="prodUsage" type="text" aria-label="Product description" value="<?php echo $prodUsage;?>"/><span class="error">* <?php echo $usageErr;?></span><br /><br />
-			<label for="prodCost">Product price: $ </label> <input name="prodCost" id="prodCost" type="text" aria-label="Product price" value="<?php echo $prodCost;?>"/><span class="error">* <?php echo $costErr;?></span><br /><br />
-			<label for="prodFinish">Product finish:</label> <input name="prodFinish" id="prodFinish" type="text" aria-label="Product finish" value="<?php echo $prodFinish;?>"/><span class="error">* <?php echo $finishErr;?></span><br /><br />
-			<label for="imageFile">Image file: </label><input type="file" id="imageFile" name="imageFile" aria-label="Image file" value="<?php echo $imageFile;?>"/><span class="error">* <?php echo $fileErr;?></span><br /><br />
-			<label for="imageFile">Accepted image formats: JPEG, PNG </label><br /><br />
-			<input name="submit" type="submit" value="Upload"/>
+			<label for="prodName">Journey date: </label><input name="prodName" id="prodName" type="text" aria-label="Product name" value="<?php echo $prodName;?>"/> <span class="error"><?php echo $nameErr;?></span><br /><br />
+			<label for="prodUsage">Start time:</label> <input name="prodUsage" id="prodUsage" type="text" aria-label="Product description" value="<?php echo $prodUsage;?>"/><span class="error"> <?php echo $usageErr;?></span><br /><br />
+			<label for="prodCost">End time: </label> <input name="prodCost" id="prodCost" type="text" aria-label="Product price" value="<?php echo $prodCost;?>"/><span class="error"> <?php echo $costErr;?></span><br /><br />
+			<label for="prodFinish">Departure:</label> <input name="prodFinish" id="prodFinish" type="text" aria-label="Product finish" value="<?php echo $prodFinish;?>"/><span class="error"> <?php echo $finishErr;?></span><br /><br />
+			<label for="prodFinish">Destination:</label> <input name="prodFinish" id="prodFinish" type="text" aria-label="Product finish" value="<?php echo $prodFinish;?>"/><span class="error"> <?php echo $finishErr;?></span><br /><br />
+			<label for="driverSig">Driver's signature:</label>
+			<input type="file" id="driverSig" name="driverSig"> or <button type="button" onclick="alert('This feature is not available at this time. Please try again later.')">Draw signature</button></br></br>
+			<label for="roadConds">Road type: </label>
+			<select id="roadConds" name="roadConds">
+				<option value="">-- select --</option>
+				<option value="S">Sealed</option>
+				<option value="U">Unsealed</option>
+				<option value="Q">Quiet street</option>
+				<option value="B">Busy road</option>
+				<option value="ML">Multi-laned road</option>
+            </select></br><br />
+			<label for="weatherConds">Weather: </label>
+			<select id="weatherConds" name="weatherConds">
+				<option value="">-- select --</option>
+				<option value="D">Dry</option>
+				<option value="W">Wet</option>
+            </select></br><br />
+			<label for="trafficConds">Traffic density: </label>
+			<select id="trafficConds" name="trafficConds">
+				<option value="">-- select --</option>
+				<option value="L">Light</option>
+				<option value="M">Medium</option>
+				<option value="H">Heavy</option>
+            </select></br>
+			<input name="submit" type="submit" value="Submit"/>
 			<input type="reset" name="reset" value="Reset" title="Reset"/>
+			
 		</form>
-		<br><p>Logged in as <b><?php echo $_COOKIE["loggedInUser"];?></b></p>
-		<a href="./index.php"><i>Log out</i></a>
     </body>
 </html>

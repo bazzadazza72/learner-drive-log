@@ -7,6 +7,7 @@
     ini_set('display_errors', 0);
 	error_reporting(-1); 
     $conn = @mysqli_connect("localhost:3306", "root", "", "acme_products");
+    $conn = mysqli_connect("localhost:3306","dbuser","01122003");
 	 
 	if (!$conn) {
 		echo "The connection has failed: " . mysqli_connect_error();

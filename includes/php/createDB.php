@@ -6,7 +6,7 @@
 	ini_set('display_errors', 0);
 	error_reporting(-1); 
     // Declares the MySQL connection and the database name for later use
-	$conn = mysqli_connect("localhost:3306","root","");
+	$conn = mysqli_connect("localhost:3306","dbuser","01122003");
 
 	// Checks if the connection to MySQL was successful
 	if (mysqli_connect_errno())
