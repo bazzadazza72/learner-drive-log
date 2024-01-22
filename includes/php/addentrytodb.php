@@ -9,8 +9,7 @@
     error_reporting(-1);
 
     // Starts a browser session, this is used for saving the image path for use later
-    session_start();
-    $conn = @mysqli_connect("localhost", "root", "", "acme_products");
+    $conn = @mysqli_connect("localhost:3306", "drives", "Password1", "drives");
     $msgTxt;
     $nameID = 0;
     $retrievedCookie = 0;
@@ -25,23 +24,16 @@
     }
     
     // Inserts the data from the add products form and inserts it into the database
-    $insert = "INSERT INTO products (prodName, prodDesc, prodCost, prodFinish, imagePath) VALUES ('$_POST[prodName]', '$_POST[prodUsage]', '$_POST[prodCost]', '$_POST[prodFinish]', '$fileLocation')";
+    $insert = "INSERT INTO journeys (journeyDate, fromLocation, toLocation, startTime, endTime, journeyLength, road, weather, traffic) VALUES ('$_POST[journeyDate]', '$_POST[departureLocation]', '$_POST[destinationLocation]', '$_POST[startTime]', '$_POST[endTime]', '$_POST[journeyLength]', '$_POST[roadConds]', '$_POST[weatherConds]', '$_POST[trafficConds]')";
     if (mysqli_query($conn, $insert)) {
             // Retrieves the ID from the inserted product in the database and stores it in a cookie
-            $nameID = mysqli_insert_id($conn);
-            setcookie("product_id", $nameID);
-            $dbQuery = "SELECT imagePath FROM products WHERE id=".$nameID;
-            $result = mysqli_query($conn, $dbQuery);
-            echo "$productid";
+            // $nameID = mysqli_insert_id($conn);
+            // setcookie("product_id", $nameID);
+            // $dbQuery = "SELECT imagePath FROM products WHERE id=".$nameID;
+            // $result = mysqli_query($conn, $dbQuery);
+            // echo "$productid";
             // Retrieves the image path based on the product's ID and stores it in the session
-            if (mysqli_num_rows($result) == 1) {
-                $row = mysqli_fetch_assoc($result);
-                $imagePath = $row["imagePath"];
-                $_SESSION['imagePath'] = $imagePath;
-            }
-            else {
-                echo "Record doesn't exist";
-            }
+            $successMsg = "Your log was saved sucessfully.";
         } else {
             $msgTxt = "There was an internal error.";
             echo "table query failed: " . mysqli_error($conn);
