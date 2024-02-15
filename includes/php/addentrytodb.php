@@ -9,7 +9,7 @@
     error_reporting(-1);
 
     // Starts a browser session, this is used for saving the image path for use later
-    $conn = @mysqli_connect("localhost:3306", "drives", "Password1", "drives");
+    $conn = @mysqli_connect("localhost:3306", "drivelog", "1234567890", "learnerdrivelog");
     $msgTxt;
     $nameID = 0;
     $retrievedCookie = 0;
@@ -24,7 +24,7 @@
     }
     
     // Inserts the data from the add products form and inserts it into the database
-    $insert = "INSERT INTO journeys (journeyDate, fromLocation, toLocation, startTime, endTime, journeyLength, road, weather, traffic) VALUES ('$_POST[journeyDate]', '$_POST[departureLocation]', '$_POST[destinationLocation]', '$_POST[startTime]', '$_POST[endTime]', '$_POST[journeyLength]', '$_POST[roadConds]', '$_POST[weatherConds]', '$_POST[trafficConds]')";
+    $insert = "INSERT INTO journeys (journeyDate, fromLocation, toLocation, startTime, endTime, journeyLength, roadConds, weatherConds, trafficConds) VALUES ('$_POST[journeyDate]', '$_POST[departureLocation]', '$_POST[destinationLocation]', '$_POST[startTime]', '$_POST[endTime]', '$_POST[journeyLength]', '$_POST[roadConds]', '$_POST[weatherConds]', '$_POST[trafficConds]')";
     if (mysqli_query($conn, $insert)) {
             // Retrieves the ID from the inserted product in the database and stores it in a cookie
             // $nameID = mysqli_insert_id($conn);

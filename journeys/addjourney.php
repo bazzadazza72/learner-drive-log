@@ -60,12 +60,7 @@
 					$journeyErr = "Journey date must not be blank.";
 					$invalidData = true;
 				} else {
-					if ($currDate > $journeyDate) {
-						$journeyErr = "Journey must not be after the current date.";
-						$invalidData = true;
-					} else {
-						$journeyErr = "";
-					}
+					$journeyErr = "";
 				}
 
 				if ($startTime == ""){
@@ -131,7 +126,7 @@
 			}
         ?>
         <h1 class="acmeTitle">Acme Hardware</h1>
-		<a href="./addProduct.php">My Journeys</a> | <a href="./updateProduct.php">Add Journey</a> | <a href="./deleteProduct.php">Update Journeys</a>
+		<a href="./">My Journeys</a> | <a href="./addjourney.php">Add Journey</a> | <a href="./updateJourney.php">Update Journey</a>
 		<h2><i>Add Journey</i></h2>
 		<h3>* - required field</h3>
 		<span class="error"><?php echo $successMsg?></span><br>

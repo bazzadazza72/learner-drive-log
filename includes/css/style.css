@@ -16,9 +16,11 @@ body {
 }
 
 
-table, th, td {
-    margin-left: 40.6%;
-    border: none;
+.journeyTable {
+    margin: 0 auto;
+    padding: 10px;
+    /* border: solid 2px; */
+    text-align: center;
 }
 
 a {
